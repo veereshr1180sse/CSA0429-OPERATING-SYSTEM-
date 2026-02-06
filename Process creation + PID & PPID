@@ -1,0 +1,9 @@
+#include <stdio.h>
+#include <unistd.h>
+
+int main() {
+    fork();   // create new process
+
+    printf("PID: %d, Parent PID: %d\n", getpid(), getppid());
+    return 0;
+}
