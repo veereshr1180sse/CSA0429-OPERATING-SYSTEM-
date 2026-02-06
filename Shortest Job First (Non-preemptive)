@@ -1,0 +1,17 @@
+#include <stdio.h>
+
+int main() {
+    int bt[3] = {6, 2, 8}, temp;
+
+    for (int i = 0; i < 3; i++)
+        for (int j = i + 1; j < 3; j++)
+            if (bt[i] > bt[j]) {
+                temp = bt[i];
+                bt[i] = bt[j];
+                bt[j] = temp;
+            }
+
+    for (int i = 0; i < 3; i++)
+        printf("Process %d BT=%d\n", i+1, bt[i]);
+    return 0;
+}
