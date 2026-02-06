@@ -1,0 +1,19 @@
+#include <stdio.h>
+
+int main() {
+    int bt[3] = {5, 4, 3}, tq = 2;
+
+    while (1) {
+        int done = 1;
+        for (int i = 0; i < 3; i++) {
+            if (bt[i] > 0) {
+                done = 0;
+                int exec = (bt[i] > tq) ? tq : bt[i];
+                bt[i] -= exec;
+                printf("P%d executes %d units\n", i+1, exec);
+            }
+        }
+        if (done) break;
+    }
+    return 0;
+}
