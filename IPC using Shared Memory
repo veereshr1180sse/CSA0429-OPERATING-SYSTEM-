@@ -1,0 +1,14 @@
+#include <sys/shm.h>
+#include <stdio.h>
+
+int main() {
+    int shmid = shmget(IPC_PRIVATE, 100, 0666 | IPC_CREAT);
+    char *msg = (char*) shmat(shmid, NULL, 0);
+
+    sprintf(msg, "Hello Shared Memory");
+    printf("%s\n", msg);
+
+    shmdt(msg);
+    shmctl(shmid, IPC_RMID, NULL);
+    return 0;
+}
