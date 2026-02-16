@@ -1,0 +1,27 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {
+    FILE *fp;
+    char data[100];
+
+    fp = fopen("file.txt","w");
+    if(fp==NULL){
+        printf("File not created\n");
+        return 0;
+    }
+    fprintf(fp,"Operating System Lab");
+    fclose(fp);
+
+    fp = fopen("file.txt","r");
+    if(fp==NULL){
+        printf("File not opened\n");
+        return 0;
+    }
+    fgets(data,100,fp);
+    printf("File Content: %s\n",data);
+    fclose(fp);
+
+    printf("File Deleted Successfully\n");
+    return 0;
+}

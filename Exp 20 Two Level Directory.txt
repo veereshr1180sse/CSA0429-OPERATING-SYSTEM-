@@ -1,0 +1,34 @@
+#include <stdio.h>
+#include <string.h>
+
+int main() {
+    char user[10][20], file[10][10][20];
+    int u,f,i,j;
+
+    printf("Enter number of users: ");
+    scanf("%d",&u);
+
+    for(i=0;i<u;i++) {
+        printf("Enter user name: ");
+        scanf("%s",user[i]);
+
+        printf("Enter number of files: ");
+        scanf("%d",&f);
+
+        for(j=0;j<f;j++) {
+            printf("Enter file name: ");
+            scanf("%s",file[i][j]);
+        }
+    }
+
+    printf("\nDirectory Structure\n");
+    for(i=0;i<u;i++) {
+        printf("\nUser: %s\n",user[i]);
+        for(j=0;j<10;j++) {
+            if(strlen(file[i][j])>0)
+                printf("  %s\n",file[i][j]);
+        }
+    }
+
+    return 0;
+}

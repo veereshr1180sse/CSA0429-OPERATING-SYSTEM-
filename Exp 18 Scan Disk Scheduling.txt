@@ -1,0 +1,39 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int compare(const void *a,const void *b){
+    return (*(int*)a - *(int*)b);
+}
+
+int main() {
+    int req[50], n, head, i, total=0;
+
+    printf("Enter number of requests: ");
+    scanf("%d",&n);
+
+    printf("Enter request sequence:\n");
+    for(i=0;i<n;i++)
+        scanf("%d",&req[i]);
+
+    printf("Enter head position: ");
+    scanf("%d",&head);
+
+    qsort(req,n,sizeof(int),compare);
+
+    for(i=0;i<n;i++) {
+        if(req[i] >= head) {
+            total += abs(req[i] - head);
+            head = req[i];
+        }
+    }
+
+    for(i=n-1;i>=0;i--) {
+        if(req[i] < head) {
+            total += abs(req[i] - head);
+            head = req[i];
+        }
+    }
+
+    printf("Total Head Movement = %d\n", total);
+    return 0;
+}
